@@ -1,0 +1,37 @@
+# Dependencies:
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+pnpm-workspace.yaml
+bun.lock
+bun.lockb
+
+# Output:
+.next/
+
+# Environment files:
+.env*
+
+# IDE:
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# License files
+LICENSE
+
+# Lock files and configs (keeping as-is from version control):
+.prettierrc
+.eslintrc*
+.editorconfig
+next.config.ts
+tsconfig.json
+postcss.config.mjs
+eslint.config.mjs
+
+# Auto-generated files:
+next-env.d.ts
