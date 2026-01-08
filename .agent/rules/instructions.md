@@ -9,8 +9,7 @@ for this codebase.
 
 ## Architecture
 
-- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/) with React 19
-  (RC).
+- **Framework**: [Next.js 16 (App Router)](https://nextjs.org/) with React 19.
 - **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) with atomic classes.
 - **UI Components**: [shadcn/ui](https://ui.shadcn.com/) (Radix UI primitives).
 - **Language**: TypeScript throughout.

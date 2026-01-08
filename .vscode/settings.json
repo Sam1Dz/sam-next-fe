@@ -9,7 +9,7 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "files.associations": {
     "*.css": "tailwindcss",
-    "*.scss": "tailwindcss",
+    "*.scss": "tailwindcss"
   },
   "editor.quickSuggestions": {
     "strings": "on"
