@@ -1,0 +1,28 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Next.js: Development",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm install && npm run dev",
+      "serverReadyAction": {
+        "pattern": "Local:\\s+(https?://\\S+)",
+        "uriFormat": "%s",
+        "action": "debugWithChrome"
+      }
+    },
+    {
+      "name": "Next.js: Build",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm install && npm run lint:fix && npm run lint && npm run format && npm run build"
+    },
+    {
+      "name": "Next.js: Preview",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run start"
+    }
+  ]
+}
