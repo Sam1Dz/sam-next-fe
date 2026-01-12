@@ -1,6 +1,6 @@
 {
   "name": "sam-next-fe",
-  "version": "16.0-alpha.1",
+  "version": "16.0-alpha.3",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -23,8 +23,8 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.1.18",
-    "@types/node": "^24.10.4",
-    "@types/react": "^19.2.7",
+    "@types/node": "^24.10.7",
+    "@types/react": "^19.2.8",
     "@types/react-dom": "^19.2.3",
     "babel-plugin-react-compiler": "^1.0.0",
     "eslint": "^9.39.2",
