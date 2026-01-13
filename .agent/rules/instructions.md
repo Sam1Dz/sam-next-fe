@@ -22,19 +22,19 @@ for this codebase.
 - **Components**: `~/components/ui` for shadcn primitives, `~/components` for
   app components.
 - **Utils**: `~/lib/utils.ts` contains the `cn` utility for class merging.
-- **Styles**: Global styles in `src/app/globals.css` (Tailwind 4 `@theme`
+- **Styles**: Global styles in `src/styles/globals.css` (Tailwind 4 `@theme`
   configuration).
 
 ### Coding Patterns
 
 - **Styling**: Use `className` with `cn()` for conditional styles.
   ```tsx
-  import { cn } from '~/lib/utils';
-  <div className={cn('bg-primary', isSpecial && 'text-white')} />;
+  import { cn } from "~/lib/utils";
+  <div className={cn("bg-primary", isSpecial && "text-white")} />;
   ```
 - **Icons**: Use `lucide-react` for icons.
   ```tsx
-  import { Loader2 } from 'lucide-react';
+  import { Loader2 } from "lucide-react";
   ```
 - **Color Variables**: Use semantic CSS variables (e.g., `bg-background`,
   `text-foreground`). Do not hardcode hex colors unless necessary.
