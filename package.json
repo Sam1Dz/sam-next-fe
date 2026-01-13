@@ -1,6 +1,6 @@
 {
   "name": "sam-next-fe",
-  "version": "16.0-alpha.3",
+  "version": "16.0-alpha.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
