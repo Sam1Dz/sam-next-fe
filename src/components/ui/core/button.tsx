@@ -1,6 +1,6 @@
-import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
+import * as React from 'react';
 
 import { cn } from '~/lib/utils';
 
@@ -36,6 +36,17 @@ const buttonVariants = cva(
   },
 );
 
+/**
+ * A fundamental button component built on Radix UI Slot.
+ * Supports various style variants and sizes through class-variance-authority.
+ *
+ * @param props - The component props.
+ * @param props.className - Additional CSS classes to apply to the button.
+ * @param props.variant - The style variant of the button (e.g., 'default', 'destructive', 'outline').
+ * @param props.size - The size of the button (e.g., 'default', 'sm', 'lg', 'icon').
+ * @param props.asChild - If true, renders the child component instead of a button element, preserving semantics.
+ * @returns The rendered button component.
+ */
 function Button({
   className,
   variant = 'default',

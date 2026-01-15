@@ -1,1 +1,0 @@
-export { ButtonVariant } from './variant';
