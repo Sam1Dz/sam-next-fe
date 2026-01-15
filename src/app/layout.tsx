@@ -7,9 +7,7 @@ export { metadata } from '~/config/site';
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<React.PropsWithChildren>) {
   return (
     <html suppressHydrationWarning lang="en">
       <body
