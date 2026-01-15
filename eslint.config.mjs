@@ -98,7 +98,7 @@ const eslintConfig = defineConfig([
     }
   },
   {
-    "files": ["src/components/ui/*.tsx", "src/components/ui/*.ts"],
+    "files": ["src/components/ui/**/*.{ts,tsx}"],
     "rules": {
       "no-restricted-imports": "off"
     }

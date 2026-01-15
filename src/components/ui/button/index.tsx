@@ -1,5 +1,8 @@
+'use client';
+
 import type { VariantProps } from 'class-variance-authority';
 
+import { useButtonGroup } from '~/components/ui/button/group';
 import {
   Button as CoreButton,
   buttonVariants,
@@ -8,24 +11,38 @@ import {
 type CoreButtonProps = typeof CoreButton;
 type ButtonVariants = VariantProps<typeof buttonVariants>;
 
-interface ButtonProps extends React.ComponentProps<CoreButtonProps> {
+export interface ButtonProps extends Omit<
+  React.ComponentProps<CoreButtonProps>,
+  'size'
+> {
   icon?: React.ReactNode;
+  iconPlacement?: 'start' | 'end';
+  size?: Exclude<ButtonVariants['size'], 'icon' | 'icon-sm' | 'icon-lg'>;
 }
 
 /**
  * An enhanced button component that wraps the core button.
- * Automates icon sizing logic when only an icon is present.
+ * Automates icon sizing logic when only an icon is present and handles icon placement.
  *
  * @param props - The extended button props including an optional icon.
  * @param props.icon - An optional icon element to display within the button.
+ * @param props.iconPlacement - Position of the icon relative to children ('start' or 'end'). Defaults to 'start'.
  * @param props.children - The content of the button.
  * @returns The enhanced button component with automatic icon handling.
  */
-function Button({ icon, ...props }: ButtonProps) {
-  const getSize = (): ButtonVariants['size'] => {
-    if (!icon || props.children) return props.size;
+function Button({
+  icon,
+  iconPlacement = 'start',
+  size: propSize,
+  ...props
+}: ButtonProps) {
+  const groupContext = useButtonGroup();
+  const size = propSize ?? groupContext?.size;
 
-    switch (props.size) {
+  const getSize = (): ButtonVariants['size'] => {
+    if (!icon || props.children) return size;
+
+    switch (size) {
       case 'sm':
         return 'icon-sm';
       case 'lg':
@@ -35,15 +52,16 @@ function Button({ icon, ...props }: ButtonProps) {
       case null:
         return 'icon';
       default:
-        return props.size;
+        return size;
     }
   };
 
   return (
     <CoreButton {...props} size={getSize()}>
       <div className="flex flex-row items-center gap-2">
-        {icon}
+        {iconPlacement === 'start' && icon}
         {props.children}
+        {iconPlacement === 'end' && icon}
       </div>
     </CoreButton>
   );

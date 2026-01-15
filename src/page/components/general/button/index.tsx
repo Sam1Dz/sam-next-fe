@@ -1,4 +1,5 @@
 import { ButtonIcon } from './icon';
+import { ButtonIconPlacement } from './icon-placement';
 import { ButtonVariant } from './variant';
 
-export { ButtonIcon, ButtonVariant };
+export { ButtonIcon, ButtonIconPlacement, ButtonVariant };
