@@ -1,4 +1,5 @@
 import {
+  ButtonDisabled,
   ButtonIcon,
   ButtonIconPlacement,
   ButtonSize,
@@ -12,6 +13,7 @@ export default function Page() {
       <ButtonIcon />
       <ButtonIconPlacement />
       <ButtonSize />
+      <ButtonDisabled />
     </div>
   );
 }
