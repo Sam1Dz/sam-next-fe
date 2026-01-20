@@ -1,11 +1,9 @@
 'use client';
 
-import type { ButtonProps } from '~/components/ui/button';
-
 import { LucideSearch } from 'lucide-react';
 import React from 'react';
 
-import { Button } from '~/components/ui/button';
+import { Button, type ButtonProps } from '~/components/ui/button';
 import { ButtonGroup } from '~/components/ui/button/group';
 import { Separator } from '~/components/ui/separator';
 

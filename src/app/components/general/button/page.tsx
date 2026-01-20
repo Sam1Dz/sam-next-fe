@@ -1,8 +1,9 @@
 import {
   ButtonIcon,
   ButtonIconPlacement,
+  ButtonSize,
   ButtonVariant,
-} from '~/page/components/general/button';
+} from '~/view/components/general/button';
 
 export default function Page() {
   return (
@@ -10,6 +11,7 @@ export default function Page() {
       <ButtonVariant />
       <ButtonIcon />
       <ButtonIconPlacement />
+      <ButtonSize />
     </div>
   );
 }
