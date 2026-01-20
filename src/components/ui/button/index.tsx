@@ -17,6 +17,7 @@ export interface ButtonProps extends Omit<
   React.ComponentProps<CoreButtonProps>,
   'size'
 > {
+  block?: boolean;
   icon?: React.ReactNode;
   iconPlacement?: 'start' | 'end';
   loading?: boolean;
@@ -29,6 +30,7 @@ export interface ButtonProps extends Omit<
  * Also manages distinct disabled states with specific hover behaviors and loading states.
  *
  * @param props - The extended button props.
+ * @param props.block - Whether the button should take up the full width of its container.
  * @param props.icon - An optional icon element to display within the button.
  * @param props.iconPlacement - Position of the icon relative to children ('start' or 'end'). Defaults to 'start'.
  * @param props.loading - Whether the button is in a loading state. Replaces icon with spinner and disables button.
@@ -38,6 +40,7 @@ export interface ButtonProps extends Omit<
  * @returns The enhanced button component with automatic icon, loading, and state handling.
  */
 function Button({
+  block,
   icon,
   loading,
   iconPlacement = 'start',
@@ -101,6 +104,7 @@ function Button({
     <CoreButton
       {...props}
       className={cn(
+        block && 'w-full',
         'disabled:pointer-events-auto disabled:cursor-not-allowed',
         getDisabledHoverClass(variant),
         props.className,
