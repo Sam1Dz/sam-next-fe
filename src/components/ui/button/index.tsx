@@ -7,6 +7,7 @@ import {
   Button as CoreButton,
   buttonVariants,
 } from '~/components/ui/core/button';
+import { Spinner } from '~/components/ui/core/spinner';
 import { cn } from '~/lib/utils';
 
 type CoreButtonProps = typeof CoreButton;
@@ -18,29 +19,34 @@ export interface ButtonProps extends Omit<
 > {
   icon?: React.ReactNode;
   iconPlacement?: 'start' | 'end';
+  loading?: boolean;
   size?: Exclude<ButtonVariants['size'], 'icon' | 'icon-sm' | 'icon-lg'>;
 }
 
 /**
  * An enhanced button component that wraps the core button.
  * Automates icon sizing logic when only an icon is present and handles icon placement.
- * Also manages distinct disabled states with specific hover behaviors.
+ * Also manages distinct disabled states with specific hover behaviors and loading states.
  *
  * @param props - The extended button props.
  * @param props.icon - An optional icon element to display within the button.
  * @param props.iconPlacement - Position of the icon relative to children ('start' or 'end'). Defaults to 'start'.
+ * @param props.loading - Whether the button is in a loading state. Replaces icon with spinner and disables button.
  * @param props.size - The size of the button. Defaults to the context size or 'default'.
  * @param props.variant - The visual variant of the button. Defaults to 'default'.
  * @param props.children - The content of the button.
- * @returns The enhanced button component with automatic icon and state handling.
+ * @returns The enhanced button component with automatic icon, loading, and state handling.
  */
 function Button({
   icon,
+  loading,
   iconPlacement = 'start',
   size: propSize,
   variant = 'default',
   ...props
 }: ButtonProps) {
+  const currentIcon = loading ? <Spinner /> : icon;
+
   const groupContext = useButtonGroup();
   const size = propSize ?? groupContext?.size;
 
@@ -75,7 +81,7 @@ function Button({
    * @returns The resolved size string for the CoreButton.
    */
   const getSize = (): ButtonVariants['size'] => {
-    if (!icon || props.children) return size;
+    if ((!icon && !loading) || props.children) return size;
 
     switch (size) {
       case 'sm':
@@ -99,12 +105,13 @@ function Button({
         getDisabledHoverClass(variant),
         props.className,
       )}
+      disabled={props.disabled || loading}
       size={getSize()}
       variant={variant}
     >
-      {iconPlacement === 'start' && icon}
+      {(iconPlacement === 'start' || !props.children) && currentIcon}
       {props.children}
-      {iconPlacement === 'end' && icon}
+      {iconPlacement === 'end' && props.children && currentIcon}
     </CoreButton>
   );
 }

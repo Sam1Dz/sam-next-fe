@@ -2,6 +2,7 @@ import {
   ButtonDisabled,
   ButtonIcon,
   ButtonIconPlacement,
+  ButtonLoading,
   ButtonSize,
   ButtonVariant,
 } from '~/view/components/general/button';
@@ -14,6 +15,7 @@ export default function Page() {
       <ButtonIconPlacement />
       <ButtonSize />
       <ButtonDisabled />
+      <ButtonLoading />
     </div>
   );
 }
