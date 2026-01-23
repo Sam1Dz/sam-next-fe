@@ -68,7 +68,7 @@ export function ButtonIconPlacement() {
           Search
         </Button>
         <Button
-          aria-label="Delete"
+          aria-label="Search"
           className="rounded-full"
           icon={<LucideSearch />}
           variant="destructive"
