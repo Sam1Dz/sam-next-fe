@@ -1,7 +1,7 @@
-import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
 import prettier from "eslint-config-prettier";
+import { defineConfig, globalIgnores } from "eslint/config";
 import tseslint from "typescript-eslint";
 
 const eslintConfig = defineConfig([
@@ -74,6 +74,34 @@ const eslintConfig = defineConfig([
       'react/react-in-jsx-scope': 'off',
       'react/self-closing-comp': 'warn',
     },
+  },
+
+  // Restrict imports
+  {
+    "rules": {
+      "no-restricted-imports": [
+        "error",
+        {
+          "patterns": [
+            {
+              "group": [
+                "src/components/ui/core",
+                "src/components/ui/core/*",
+                "~/components/ui/core",
+                "~/components/ui/core/*"
+              ],
+              "message": "Do not import from 'core' directly. Use the parent module."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "files": ["src/components/ui/**/*.{ts,tsx}"],
+    "rules": {
+      "no-restricted-imports": "off"
+    }
   },
 
   // Override default ignores of eslint-config-next.
