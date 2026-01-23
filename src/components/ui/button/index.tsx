@@ -45,6 +45,7 @@ function Button({
   loading,
   iconPlacement = 'start',
   size: propSize,
+  type = 'button',
   variant = 'default',
   ...props
 }: ButtonProps) {
@@ -111,6 +112,7 @@ function Button({
       )}
       disabled={props.disabled || loading}
       size={getSize()}
+      type={type}
       variant={variant}
     >
       {(iconPlacement === 'start' || !props.children) && currentIcon}

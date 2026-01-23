@@ -32,12 +32,17 @@ export function ButtonIconPlacement() {
       <Separator className="my-2" />
 
       <div className="flex flex-row gap-2">
-        <Button className="rounded-full" icon={<LucideSearch />} />
-        <Button className="rounded-full" icon="A" />
+        <Button
+          aria-label="Search"
+          className="rounded-full"
+          icon={<LucideSearch />}
+        />
+        <Button aria-label="Sort by A" className="rounded-full" icon="A" />
         <Button icon={<LucideSearch />} iconPlacement={placement}>
           Search
         </Button>
         <Button
+          aria-label="Search"
           className="rounded-full"
           icon={<LucideSearch />}
           iconPlacement={placement}
@@ -50,6 +55,7 @@ export function ButtonIconPlacement() {
 
       <div className="flex flex-row gap-2">
         <Button
+          aria-label="Search"
           className="rounded-full"
           icon={<LucideSearch />}
           variant="outline"
@@ -62,6 +68,7 @@ export function ButtonIconPlacement() {
           Search
         </Button>
         <Button
+          aria-label="Delete"
           className="rounded-full"
           icon={<LucideSearch />}
           variant="destructive"
@@ -73,7 +80,7 @@ export function ButtonIconPlacement() {
         >
           Search
         </Button>
-        <Button icon={<LucideSearch />} variant="outline" />
+        <Button aria-label="Search" icon={<LucideSearch />} variant="outline" />
       </div>
     </div>
   );

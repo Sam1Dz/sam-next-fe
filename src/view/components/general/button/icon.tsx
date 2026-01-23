@@ -1,3 +1,5 @@
+'use client';
+
 import { LucideSearch } from 'lucide-react';
 
 import { Button } from '~/components/ui/button';
@@ -7,10 +9,15 @@ export function ButtonIcon() {
     <div className="flex flex-col gap-2">
       <p>Icon</p>
       <div className="flex flex-row gap-2">
-        <Button className="rounded-full" icon={<LucideSearch />} />
-        <Button className="rounded-full" icon="A" />
+        <Button
+          aria-label="Search"
+          className="rounded-full"
+          icon={<LucideSearch />}
+        />
+        <Button aria-label="Sort by A" className="rounded-full" icon="A" />
         <Button icon={<LucideSearch />}>Search</Button>
         <Button
+          aria-label="Search"
           className="rounded-full"
           icon={<LucideSearch />}
           variant="outline"
@@ -22,6 +29,7 @@ export function ButtonIcon() {
 
       <div className="flex flex-row gap-2">
         <Button
+          aria-label="Search"
           className="rounded-full"
           icon={<LucideSearch />}
           variant="outline"
@@ -30,6 +38,7 @@ export function ButtonIcon() {
           Search
         </Button>
         <Button
+          aria-label="Delete"
           className="rounded-full"
           icon={<LucideSearch />}
           variant="destructive"
@@ -37,7 +46,7 @@ export function ButtonIcon() {
         <Button icon={<LucideSearch />} variant="destructive">
           Search
         </Button>
-        <Button icon={<LucideSearch />} variant="outline" />
+        <Button aria-label="Search" icon={<LucideSearch />} variant="outline" />
       </div>
     </div>
   );
